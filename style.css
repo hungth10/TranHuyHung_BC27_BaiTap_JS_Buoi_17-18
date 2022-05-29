@@ -19,3 +19,11 @@
 p {
     margin: 0;
 }
+
+#array {
+    margin-left: 5px;
+}
+
+.fa-hand-point-right {
+    color: rgb(75, 150, 225);
+}

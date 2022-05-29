@@ -32,6 +32,11 @@
                         <input type="text" id="addNumber" class="form-control" placeholder="Nhập vào các số nguyên" />
                         <button class="btn" onclick="addNumber()">Thêm số</button>
                     </div>
+
+                    <div class="result">
+                        <i class="fa-solid fa-hand-point-right"></i>
+                        <span id="array"></span>
+                    </div>
                 </div>
 
                 <!-- bài tập 1 -->
@@ -97,7 +102,7 @@
                 <!-- bài tập 6 -->
                 <div class="card mt-5">
                     <div class="card-header">
-                        Bài tập 6: Đổi chỗ 2 giá trị trong mảng
+                        Bài tập 6: Đổi chỗ vị trí 2 giá trị trong mảng
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -131,6 +136,55 @@
                         <button class="btn mb-3" onclick="sortUp()">Sắp xếp</button>
 
                         <div id="result-bt7" class="result">Kết quả</div>
+                    </div>
+                </div>
+
+                <!-- bài tập 8 -->
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Bài tập 8: Tìm số nguyên tố
+                    </div>
+                    <div class="card-body">
+                        <button class="btn mb-3" onclick="findPrimeNum()">Tìm số nguyên tố</button>
+
+                        <div id="result-bt8" class="result">Kết quả</div>
+                    </div>
+                </div>
+
+                <!-- bài tập 9 -->
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Bài tập 9: Đếm số nguyên trong mảng số thực
+                    </div>
+                    <div class="card-body">
+                        <div class="add-real-number">
+                            <div class="mb-3">
+                                <label for="addRealNumber" class="form-label"></label>
+                                <input type="text" id="addRealNumber" class="form-control" placeholder="Nhập vào các số thực" />
+                                <button class="btn" onclick="addRealNumber()">Thêm số</button>
+                            </div>
+        
+                            <div class="result">
+                                <i class="fa-solid fa-hand-point-right"></i>
+                                <span id="array-real-nums"></span>
+                            </div>
+                        </div>
+
+                        <button class="btn mb-3" onclick="countPrimeNum()">Đếm số nguyên tố</button>
+
+                        <div id="result-bt9" class="result">Kết quả</div>
+                    </div>
+                </div>
+
+                <!-- bài tập 10 -->
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Bài tập 10: So sánh số lượng số Dương và số Âm
+                    </div>
+                    <div class="card-body">
+                        <button class="btn mb-3" onclick="comparePosNeg()">So sánh</button>
+
+                        <div id="result-bt10" class="result">Kết quả</div>
                     </div>
                 </div>
             </div>

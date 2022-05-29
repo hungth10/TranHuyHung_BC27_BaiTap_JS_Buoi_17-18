@@ -10,13 +10,15 @@ function addNumber() {
   document.getElementById("addNumber").value = "";
 
   console.log(nums);
+
+  document.getElementById("array").innerHTML = nums.join(", ");
 }
 
 // Bài tập 1: tính tổng các số nguyên dương
 function calcSum() {
   var sum = 0;
 
-  for (i = 0; i < nums.length; i++) {
+  for (var i = 0; i < nums.length; i++) {
     if (nums[i] > 0) {
       sum += nums[i];
     }
@@ -32,7 +34,7 @@ function calcSum() {
 function countInteger() {
   var count = 0;
 
-  for (i = 0; i < nums.length; i++) {
+  for (var i = 0; i < nums.length; i++) {
     if (nums[i] > 0) {
       count++;
     }
@@ -64,7 +66,7 @@ function minCompare(a, b) {
 function findIntegerMin() {
   var numsBt4 = [];
 
-  for (i = 0; i < nums.length; i++) {
+  for (var i = 0; i < nums.length; i++) {
     if (nums[i] > 0) {
       numsBt4.push(nums[i]);
     }
@@ -80,12 +82,12 @@ function findIntegerMin() {
     Số dương nhỏ nhất là: ${min}`;
 }
 
-// Bài Tập 5
+// Bài Tập 5: Tìm số chẵn cuối cùng trong mảng
 function findFinalEven() {
   var numBt5 = [];
   var count = 0;
 
-  for (i = 0; i < nums.length; i++) {
+  for (var i = 0; i < nums.length; i++) {
     if (nums[i] % 2 === 0) {
       numBt5.push(nums[i]);
       count++;
@@ -109,7 +111,7 @@ function findFinalEven() {
   Số chẵn cuối cùng trong mảng là: ${finalEvenNum}`;
 }
 
-// bài tập 6
+// bài tập 6: Đổi chỗ vị trí 2 giá trị trong mảng
 function changeLocation() {
   var locate_1 = +document.getElementById("locate-1").value;
   var locate_2 = +document.getElementById("locate-2").value;
@@ -117,24 +119,98 @@ function changeLocation() {
   var a = nums[locate_1];
   var b = nums[locate_2];
 
-  if (locate_1 > nums.length - 1 || locate_2 > nums.length -1) {
+  if (locate_1 > nums.length - 1 || locate_2 > nums.length - 1) {
     alert("Vị trị nhập vào phải nhỏ hơn hoặc bằng vị trí lớn nhất trong mảng");
   } else {
-    document.getElementById('bt6-init-array').innerHTML = `
-    Trước khi đổi chỗ: ${nums}`
-    
+    document.getElementById("bt6-init-array").innerHTML = `
+    Trước khi đổi chỗ: ${nums}`;
+
     nums[locate_1] = b;
     nums[locate_2] = a;
 
-    document.getElementById('bt6-after-change').innerHTML = `
-    Sau khi đổi chỗ: ${nums}`
+    document.getElementById("bt6-after-change").innerHTML = `
+    Sau khi đổi chỗ: ${nums}`;
   }
 }
 
-// Bài tập 7
+// Bài tập 7: Sắp xếp tăng dần
 function sortUp() {
-    nums.sort(minCompare);
+  nums.sort(minCompare);
 
-    document.getElementById('result-bt7').innerHTML = `
-    Sắp xếp tăng dần: ${nums.join(", ")}`
+  document.getElementById("result-bt7").innerHTML = `
+    Sắp xếp tăng dần: ${nums.join(", ")}`;
+}
+
+// Bài tập 8: Tìm số nguyên tố đầu tiên trong mảng
+function findPrimeNum() {
+  for (var i = 0; i < nums.length; i++) {
+    if (nums[i] === 2) {
+      document.getElementById("result-bt8").innerHTML = `
+      Số nguyên tố đầu tiên trong mảng là: 2`;
+      break;
+    } else if (
+      nums[i] > 2 &&
+      nums[i] % 2 !== 0 &&
+      nums[i] % Math.sqrt(nums[i]) !== 0
+    ) {
+      document.getElementById("result-bt8").innerHTML = `
+      Số nguyên tố đầu tiên trong mảng là: ${nums[i]}`;
+      break;
+    } else {
+      document.getElementById("result-bt8").innerHTML = `
+      Mảng không có số nguyên tố`;
+    }
+  }
+}
+
+// Bài tập 9: đếm các nguyên trong mảng số thực
+var realNums = [];
+
+function addRealNumber() {
+  var num = +document.getElementById("addRealNumber").value;
+
+  realNums.push(num);
+
+  document.getElementById("addRealNumber").value = "";
+
+  document.getElementById("array-real-nums").innerHTML = realNums.join(", ");
+}
+
+// Đếm số nguyên tố
+function countPrimeNum() {
+  var count = 0;
+
+  for (var i = 0; i < realNums.length; i++) {
+    if (Number.isInteger(realNums[i])) {
+      count++;
+    }
+  }
+
+  document.getElementById("result-bt9").innerHTML = `
+  Số lượng số Nguyên: ${count}`;
+}
+
+// Bài tập 10: So sánh số dương và số âm
+function comparePosNeg() {
+  var posiNums = 0; // Đếm số dương
+  var negaNums = 0; // Đếm số âm
+
+  for (var i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) {
+      posiNums++;
+    }
+
+    if (nums[i] < 0) {
+      negaNums++;
+    }
+  }
+
+  console.log(`Số lượng số Dương: ${posiNums}`);
+  console.log(`Số lượng số Âm: ${negaNums}`);
+
+  if (posiNums > negaNums) {
+    document.getElementById("result-bt10").innerHTML = ` Số Dương > Số Âm`;
+  } else {
+    document.getElementById("result-bt10").innerHTML = ` Số Dương < Số Âm`;
+  }
 }
